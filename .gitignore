@@ -1,0 +1,21 @@
+# Maven build output
+/target/
+*.class
+
+# IDE metadata
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# draw.io backups
+/diagrams/.*.drawio.bkp
+
+# Editor temporary files
+*.swp
+*.swo
+*~
+
+# Local agent instructions
+/AGENTS.md

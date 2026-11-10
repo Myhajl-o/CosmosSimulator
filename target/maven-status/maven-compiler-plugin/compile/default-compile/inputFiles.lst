@@ -32,10 +32,8 @@
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/factory/template/TemplateObject.java
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/factory/template/TemplatePlanet.java
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/factory/template/TemplateStar.java
-/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/INOutFile.java
-/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/InOut.java
-/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/InOutJSON.java
-/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/InOutTerm.java
+/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/MainInput.java
+/home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/MenuTerm.java
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/input/InputManager.java
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/input/InputMethodOutput.java
 /home/misha/vscode/cosmoSymulator/src/main/java/com/cosmos/simulation/io/input/InputObjects.java

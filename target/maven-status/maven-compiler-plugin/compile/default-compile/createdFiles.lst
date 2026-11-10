@@ -1,11 +1,6 @@
 com/cosmos/simulation/math/Vector3.class
-com/cosmos/simulation/io/InOutJSON.class
-com/cosmos/simulation/io/InOut.class
-com/cosmos/simulation/io/InOutTerm.class
 com/cosmos/simulation/Main.class
 com/cosmos/simulation/io/input/model/Temp.class
 com/cosmos/simulation/io/input/model/VecTemp.class
 com/cosmos/simulation/model/ObjectCosmos.class
-com/cosmos/simulation/io/INOutFile.class
 com/cosmos/simulation/io/input/model/RealObject.class
-com/cosmos/simulation/io/InOutTerm$Key.class
