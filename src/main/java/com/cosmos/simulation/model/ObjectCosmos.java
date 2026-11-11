@@ -46,6 +46,26 @@ public abstract class ObjectCosmos {
     this.radius = radius;
   }
 
+  public void addCoord(Vector3 coord) {
+    this.coord.add(coord);
+  }
+
+  public void addVelocity(Vector3 V) {
+    this.V.add(V);
+  }
+
+  public void addAcceleration(Vector3 a) {
+    this.a.add(a);
+  }
+
+  public void addMass(BigDecimal mass) {
+    this.mass = this.mass.add(mass);
+  }
+
+  public void addRadius(BigDecimal radius) {
+    this.radius = this.radius.add(radius);
+  }
+
   public Vector3 getCoord() {
     return this.coord;
   }

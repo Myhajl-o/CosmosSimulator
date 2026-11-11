@@ -7,6 +7,7 @@ import com.cosmos.simulation.io.input.InputObject;
 import com.cosmos.simulation.io.input.model.VecTemp;
 import com.cosmos.simulation.io.input.model.Temp;
 import com.cosmos.simulation.model.ObjectCosmos;
+import com.cosmos.simulation.validation.IdentifyObj;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -40,7 +41,7 @@ public class InputFromTermObj implements InputObject {
           new VecTemp(param.get(6), param.get(7), param.get(8)),
           param.get(9), param.get(10));
 
-      IdentifyObj.identify(objTemp);
+      return IdentifyObj.identify(objTemp);
 
     } catch (IOException e) {
       return null; // rework

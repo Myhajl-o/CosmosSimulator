@@ -1,7 +1,5 @@
 package com.cosmos.simulation.io.input.model;
 
-import com.cosmos.simulation.io.input.model.VecTemp;
-
 public class Temp {
   public VecTemp coord;
   public VecTemp V;

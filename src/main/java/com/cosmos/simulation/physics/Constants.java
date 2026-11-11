@@ -1,12 +1,18 @@
 package com.cosmos.simulation.physics;
 
 import java.util.List;
-import java.util.Arrays;
 import com.cosmos.simulation.factory.CreatingObject;
 import com.cosmos.simulation.factory.CreatingBlackHole;
 import com.cosmos.simulation.factory.CreatingStar;
+import com.cosmos.simulation.io.input.objects.InputFromTermObj;
+import com.cosmos.simulation.setup.control.ControlsObjects;
+import com.cosmos.simulation.io.input.InputObject;
+import com.cosmos.simulation.setup.control.Controls;
+import com.cosmos.simulation.setup.control.ControlsObjects;
+import com.cosmos.simulation.io.input.objects.InputFromRandomObj;
+import com.cosmos.simulation.io.input.objects.InputFromDefaultObj;
+
 import com.cosmos.simulation.factory.CreatingPlanet;
-import java.util.Map;
 import java.math.BigDecimal;
 
 public class Constants {
@@ -25,51 +31,82 @@ public class Constants {
    * }
    */
 
-  public class BoundariesSpace {
-    BigDecimal upperCosm = new BigDecimal("1E27");
-    BigDecimal lowerCosm = new BigDecimal("-1E27");
+  public static class BoundariesSpace {
+    public static final BigDecimal upperCosm = new BigDecimal("1E27");
+    public static final BigDecimal lowerCosm = new BigDecimal("-1E27");
 
-    BigDecimal upperSpeedLight = new BigDecimal("299792458");
-    BigDecimal lowerSpeedLight = new BigDecimal("-299792457");
+    public static final BigDecimal upperSpeedLight = new BigDecimal("299792458");
+    public static final BigDecimal lowerSpeedLight = new BigDecimal("-299792457");
 
     // Planets
-    BigDecimal upperMassPlanet = new BigDecimal("2.47E28");
-    BigDecimal lowerMassPlanet = new BigDecimal("1.19E23");
+    public static final BigDecimal upperMassPlanet = new BigDecimal("2.47E28");
+    public static final BigDecimal lowerMassPlanet = new BigDecimal("1.19E23");
 
-    BigDecimal upperRadiusPlanet = new BigDecimal("1.53E8");
-    BigDecimal lowerRadiusPlanet = new BigDecimal("1.97E6");
+    public static final BigDecimal upperRadiusPlanet = new BigDecimal("5.38E8");
+    public static final BigDecimal lowerRadiusPlanet = new BigDecimal("1.26E6");
 
-    BigDecimal upperDensityPlanet = new BigDecimal("1.41E4");
-    BigDecimal lowerDensityPlanet = new BigDecimal("38");
+    public static final BigDecimal upperDensityPlanet = new BigDecimal("14100");
+    public static final BigDecimal lowerDensityPlanet = new BigDecimal("38");
 
-    // Stars: excluding white dwarfs and neutron stars
-    BigDecimal upperMassStar = new BigDecimal("4.63E32");
-    BigDecimal lowerMassStar = new BigDecimal("1.49E29");
+    // Stars
+    public static final BigDecimal upperMassStar = new BigDecimal("4.63E32");
+    public static final BigDecimal lowerMassStar = new BigDecimal("1.49E29");
 
-    BigDecimal upperRadiusStar = new BigDecimal("1E12");
-    BigDecimal lowerRadiusStar = new BigDecimal("5.84E7");
+    public static final BigDecimal upperRadiusStar = new BigDecimal("2.23E12");
+    public static final BigDecimal lowerRadiusStar = new BigDecimal("9.86E8");
 
-    BigDecimal upperDensityStar = new BigDecimal("2E5");
-    BigDecimal lowerDensityStar = new BigDecimal("1E-5");
+    public static final BigDecimal upperDensityStar = new BigDecimal("37");
+    public static final BigDecimal lowerDensityStar = new BigDecimal("1E-5");
 
-    // Black holes: non-rotating, uncharged approximation
-    BigDecimal upperMassBlackHole = new BigDecimal("1.31E41");
-    BigDecimal lowerMassBlackHole = new BigDecimal("7.56E30");
+    // Black holes: effective model radius, not event-horizon radius
+    public static final BigDecimal upperMassBlackHole = new BigDecimal("1.31E41");
+    public static final BigDecimal lowerMassBlackHole = new BigDecimal("7.56E30");
 
-    BigDecimal upperRadiusBlackHole = new BigDecimal("1.95E14");
-    BigDecimal lowerRadiusBlackHole = new BigDecimal("1.12E4");
+    public static final BigDecimal upperRadiusBlackHole = new BigDecimal("1.31E12");
+    public static final BigDecimal lowerRadiusBlackHole = new BigDecimal("1.12E4");
 
-    // Conventional average density calculated using the horizon radius
-    BigDecimal upperDensityBlackHole = new BigDecimal("1.28E18");
-    BigDecimal lowerDensityBlackHole = new BigDecimal("4.23E-3");
+    public static final BigDecimal upperDensityBlackHole = new BigDecimal("1.28E18");
+    public static final BigDecimal lowerDensityBlackHole = new BigDecimal("14101");
 
   }
 
-  public class CreateForParam {
-    public static List<CreatingObject> rule = new Arrays.asList(
+  public static class Geometry {
+    public static final BigDecimal pi = new BigDecimal("3.141592");
+  }
+
+  public static class Physic {
+    public static BigDecimal gravitati = new BigDecimal("6.67430E-11");
+  }
+
+  public static class CreateForParam {
+    public static final List<CreatingObject> creaters = List.of(
         new CreatingBlackHole(),
         new CreatingStar(),
         new CreatingPlanet());
-
   }
+
+  public static class AllListsInput {
+    public static List<InputObject> inputObject = List.of(
+        new InputFromTermObj(),
+        new InputFromRandomObj(),
+        new InputFromDefaultObj());
+    /*
+     * public static List<InputObjects> inputObjects = List.of(
+     * new InputFromJSONObj(),
+     * new InputFromFileObj(),
+     * new InputFromBDObj()
+     * );
+     */
+  }
+
+  public static class ControlsList {
+    public static List<Controls<?>> controls = List.of(
+        new ControlsObjects()/*
+                              * ,
+                              * new ConstantsTime(),
+                              * new ConstantsProcess(),
+                              * new ConstantsMethodOutput()
+                              */);
+  }
+
 }

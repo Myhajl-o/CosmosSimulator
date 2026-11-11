@@ -18,4 +18,17 @@ public class Vector3 {
     this.y = y;
     this.z = z;
   }
+
+  public void add(Vector3 other) {
+    this.x = this.x.add(other.x);
+    this.y = this.y.add(other.y);
+    this.z = this.z.add(other.z);
+  }
+
+  public void sub(Vector3 other) {
+    this.x = this.x.subtract(other.x);
+    this.y = this.y.subtract(other.y);
+    this.z = this.z.subtract(other.z);
+  }
+
 }
