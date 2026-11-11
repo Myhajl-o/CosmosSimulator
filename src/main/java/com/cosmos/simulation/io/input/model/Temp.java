@@ -13,8 +13,8 @@ public class Temp {
     this.coord = new VecTemp();
     this.V = new VecTemp();
     this.a = new VecTemp();
-    this.mass = "0";
-    this.radius = "0";
+    this.mass = null;
+    this.radius = null;
   }
 
   public Temp(VecTemp coord, VecTemp V, VecTemp a, String mass, String radius) {

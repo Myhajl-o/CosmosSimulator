@@ -1,1 +1,9 @@
+package com.cosmos.simulation.io;
 
+import java.io.IOException;
+import java.util.List;
+
+public interface MainInput {
+
+  List<String> input(List<String> msg) throws IOException;
+}

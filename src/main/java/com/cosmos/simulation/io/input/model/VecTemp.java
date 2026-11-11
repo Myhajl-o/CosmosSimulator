@@ -6,9 +6,9 @@ public class VecTemp {
   public String z;
 
   public VecTemp() {
-    this.x = "0";
-    this.y = "0";
-    this.z = "0";
+    this.x = null;
+    this.y = null;
+    this.z = null;
   }
 
   public VecTemp(String x, String y, String z) {
