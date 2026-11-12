@@ -27,8 +27,8 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.6.4</version>
           <configuration>
-          <mainClass>com.cosmos.simulation.TestMain</mainClass>
-          <classpathScope>test</classpathScope>
+          <mainClass>com.cosmos.simulation.Main</mainClass>
+          <classpathScope>main</classpathScope>
         </configuration>
       </plugin>
     </plugins>

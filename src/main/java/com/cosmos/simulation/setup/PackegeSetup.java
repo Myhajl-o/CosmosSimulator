@@ -1,10 +1,15 @@
 package com.cosmos.simulation.setup;
 
-public class PackegeSetup {
-  SimulationSetup simSetup;
-  Output output;
+import com.cosmos.simulation.io.output.Output;
 
-  boolean checkValid() {
+public class PackegeSetup {
+  private SimulationSetup simSetup = new SimulationSetup();
+  private Output output;
+
+  public boolean checkValid() {
+    if (simSetup == null) {
+      return false;
+    }
     if (simSetup.cosmWorld == null) {
       return false;
     }
@@ -20,4 +25,17 @@ public class PackegeSetup {
 
     return true;
   }
+
+  public SimulationSetup getSimSetup() {
+    return this.simSetup;
+  }
+
+  public Output getOutput() {
+    return this.output;
+  }
+
+  public void setOutput(Output output) {
+    this.output = output;
+  }
+
 }

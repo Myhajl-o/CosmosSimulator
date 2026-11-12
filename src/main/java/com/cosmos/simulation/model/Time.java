@@ -5,6 +5,11 @@ public class Time {
   private long stepCount;
   private double timeStep;
 
+  public Time(long stepCount, double timeStep) {
+    this.stepCount = stepCount;
+    this.timeStep = timeStep;
+  }
+
   public void setStepCount(long stepCount) {
     this.stepCount = stepCount;
   }

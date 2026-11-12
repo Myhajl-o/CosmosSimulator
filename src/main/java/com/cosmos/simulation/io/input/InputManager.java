@@ -1,6 +1,6 @@
 package com.cosmos.simulation.io.input;
 
-import com.cosmos.simulation.model.PackegeSetup;
+import com.cosmos.simulation.setup.PackegeSetup;
 import com.cosmos.simulation.setup.ChoiceOptionManager;
 import com.cosmos.simulation.io.MenuTerm;
 
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputManager {
-  public PackageSetup inputForSymulatorSetup() {
+  public PackegeSetup inputForSymulatorSetup() {
     MenuTerm term = new MenuTerm();
     ChoiceOptionManager optionManager = new ChoiceOptionManager();
     List<String> options = Arrays.asList(
