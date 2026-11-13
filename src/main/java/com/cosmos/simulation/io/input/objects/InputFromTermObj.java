@@ -7,32 +7,21 @@ import com.cosmos.simulation.io.input.InputObject;
 import com.cosmos.simulation.io.input.model.VecTemp;
 import com.cosmos.simulation.io.input.model.Temp;
 import com.cosmos.simulation.model.ObjectCosmos;
+import com.cosmos.simulation.physics.Constants;
 import com.cosmos.simulation.validation.IdentifyObj;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class InputFromTermObj implements InputObject {
   public ObjectCosmos inputObj() {
-    List<String> msg = Arrays.asList("Enter coordinate x: ",
-        "Enter coordinate y: ",
-        "Enter coordinate z: ",
-        "Enter velocity x: ",
-        "Enter velocity y: ",
-        "Enter velocity z: ",
-        "Enter acceleraton x: ",
-        "Enter acceleraton y: ",
-        "Enter acceleraton z: ",
-        "Enter mass: ",
-        "Enter radius: ");
 
     MainInput input = new MainInputTerm();
 
     try {
-      List<String> param = input.input(msg);
+      List<String> param = input.input(Constants.Massanges.inCosObj);
       if (!ValidationCheck.checkObj(param)) {
-        return null; // rework
+        return null;
       }
 
       Temp objTemp = new Temp(
@@ -44,7 +33,7 @@ public class InputFromTermObj implements InputObject {
       return IdentifyObj.identify(objTemp);
 
     } catch (IOException e) {
-      return null; // rework
+      return null;
     }
 
   }

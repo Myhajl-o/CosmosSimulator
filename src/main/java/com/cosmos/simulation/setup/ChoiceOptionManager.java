@@ -5,6 +5,7 @@ import com.cosmos.simulation.io.MenuTerm;
 import com.cosmos.simulation.io.output.Output;
 import com.cosmos.simulation.model.CosmosWorld;
 import com.cosmos.simulation.model.Time;
+import com.cosmos.simulation.physics.Constants;
 import com.cosmos.simulation.setup.control.Controls;
 import com.cosmos.simulation.setup.control.ControlsMethOutput;
 import com.cosmos.simulation.setup.control.ControlsObjects;
@@ -27,40 +28,58 @@ public class ChoiceOptionManager {
     if (term == null) {
       term = new MenuTerm();
     }
-    List<String> options = List.of("Objects", "Time", "Processes", "Output", "Back");
 
     while (true) {
       term.clear();
-      int ind = term.choiseOption(options);
+      int ind = term.choiseOption(Constants.Massanges.inOptions);
       switch (ind) {
         case 0:
           CosmosWorld cosmWorld = objectsControl.control(term);
           if (cosmWorld != null) {
             pack.getSimSetup().cosmWorld = cosmWorld;
+          } else {
+            showTemporaryMessage(term, "Object settings were not changed.");
           }
           break;
         case 1:
           Time time = timeControl.control(term);
           if (time != null) {
             pack.getSimSetup().time = time;
+          } else {
+            showTemporaryMessage(term, "Time settings were not changed.");
           }
           break;
         case 2:
           List<SimulationProcess> processes = processesControl.control(term);
           if (processes != null) {
             pack.getSimSetup().proc = processes;
+          } else {
+            showTemporaryMessage(term, "Process settings were not changed.");
           }
           break;
         case 3:
           Output output = outputControl.control(term);
           if (output != null) {
             pack.setOutput(output);
+          } else {
+            showTemporaryMessage(term, "Output settings were not changed.");
           }
           break;
         case 4:
           term.clear();
           return pack;
       }
+    }
+  }
+
+  private void showTemporaryMessage(MenuTerm term, String message) {
+    term.clear();
+    term.showMsg(message);
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      System.exit(1);
     }
   }
 }

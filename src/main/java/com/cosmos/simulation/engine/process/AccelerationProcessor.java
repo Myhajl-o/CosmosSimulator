@@ -8,7 +8,6 @@ import com.cosmos.simulation.physics.calculation.AccelerationCalculate;
 import com.cosmos.simulation.physics.calculation.IAccelerationCalculate;
 import com.cosmos.simulation.physics.update.AccelerationUpdate;
 import com.cosmos.simulation.physics.update.IUpdatorVector3;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,11 +24,13 @@ public class AccelerationProcessor implements SimulationProcess {
     this.updater = Objects.requireNonNull(updater);
   }
 
-  /** Recomputes acceleration from current positions; time is not needed for this step. */
+  /**
+   * Recomputes acceleration from current positions; time is not needed for this
+   * step.
+   */
   @Override
   public void processing(CosmosWorld cosmWorld, double time) {
     List<ObjectCosmos> objects = List.copyOf(cosmWorld.getAllObj());
-    List<Vector3> accelerations = new ArrayList<>(objects.size());
     for (ObjectCosmos object : objects) {
       Vector3 total = new Vector3();
       for (ObjectCosmos other : objects) {
@@ -37,10 +38,7 @@ public class AccelerationProcessor implements SimulationProcess {
           total.add(calculator.calculationg(object, other));
         }
       }
-      accelerations.add(total);
-    }
-    for (int i = 0; i < objects.size(); i++) {
-      updater.update(objects.get(i), accelerations.get(i));
+      updater.update(object, total);
     }
   }
 }

@@ -6,12 +6,13 @@ import com.cosmos.simulation.engine.SimulationLauncher;
 import com.cosmos.simulation.setup.PackegeSetup;
 
 public class Main {
+  private final static InputManager input = new InputManager();
+  private final static SimulationLauncher launch = new SimulationLauncher();
+  private final static OutputManager output = new OutputManager();
+
   public static void main(String argc[]) {
-    InputManager input = new InputManager();
     PackegeSetup pack = input.inputForSymulatorSetup();
-    SimulationLauncher launch = new SimulationLauncher();
     launch.startSimulation(pack.getSimSetup());
-    OutputManager output = new OutputManager();
     output.outputResultSimulation(pack.getOutput(), pack.getSimSetup().cosmWorld);
   }
 }

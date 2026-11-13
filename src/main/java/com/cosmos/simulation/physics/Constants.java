@@ -1,19 +1,32 @@
 package com.cosmos.simulation.physics;
 
+import java.util.function.Supplier;
+
+import com.cosmos.simulation.engine.SimulationProcess;
+import com.cosmos.simulation.engine.process.AccelerationProcessor;
+import com.cosmos.simulation.engine.process.MoveProcessor;
+import com.cosmos.simulation.engine.process.VelocityProcessor;
+
 import java.util.List;
 import com.cosmos.simulation.factory.CreatingObject;
 import com.cosmos.simulation.factory.CreatingBlackHole;
 import com.cosmos.simulation.factory.CreatingStar;
 import com.cosmos.simulation.io.input.objects.InputFromTermObj;
+import com.cosmos.simulation.io.input.output.InputFromTermMethodOutput;
+import com.cosmos.simulation.io.input.time.InputFromTimeTerm;
+import com.cosmos.simulation.io.input.time.InputDefoultTime;
+import com.cosmos.simulation.io.input.time.InputFromRandomTime;
 import com.cosmos.simulation.setup.control.ControlsObjects;
+import com.cosmos.simulation.io.input.InputMethodOutput;
 import com.cosmos.simulation.io.input.InputObject;
+import com.cosmos.simulation.io.input.InputTime;
 import com.cosmos.simulation.setup.control.Controls;
-import com.cosmos.simulation.setup.control.ControlsObjects;
 import com.cosmos.simulation.io.input.objects.InputFromRandomObj;
 import com.cosmos.simulation.io.input.objects.InputFromDefaultObj;
 
 import com.cosmos.simulation.factory.CreatingPlanet;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class Constants {
 
@@ -30,6 +43,100 @@ public class Constants {
    * }
    * }
    */
+  public static class Massanges {
+    // input
+    public static List<String> inCosObj = Arrays.asList(
+        "Enter coordinate x: ",
+        "Enter coordinate y: ",
+        "Enter coordinate z: ",
+        "Enter velocity x: ",
+        "Enter velocity y: ",
+        "Enter velocity z: ",
+        "Enter acceleraton x: ",
+        "Enter acceleraton y: ",
+        "Enter acceleraton z: ",
+        "Enter mass: ",
+        "Enter radius: ");
+
+    public static List<String> defObj = Arrays.asList(
+        "Planet",
+        "Star",
+        "Black Hole");
+
+    public static List<String> inTime = List.of(
+        "Enter Step Count: ",
+        "Enter Time Step: ");
+
+    public static List<String> inProc = List.of(
+        "Add AccelerationProcessor",
+        "Add VelocityProcessor",
+        "Add MoveProcessor",
+        "Back");
+
+    public static List<String> inMethodOut = List.of(
+        "Terminal",
+        "File",
+        "Back");
+
+    // control
+    public static List<String> controlObj = Arrays.asList(
+        "Add Object",
+        "Add Objects",
+        "Show Objects",
+        "Delete Object",
+        "Back");
+
+    public static List<String> controlCreateObj = Arrays.asList(
+        "Add from Terminal",
+        "Randomly Generated Object",
+        "Default Object",
+        "Back");
+
+    public static List<String> controlTime = Arrays.asList(
+        "Set Time",
+        "Show Time",
+        "Back");
+
+    public static List<String> controlCreateTime = Arrays.asList(
+        "Input Default Time",
+        "Input Random Time",
+        "Input From Term Time",
+        "Back");
+
+    public static List<String> controlProc = Arrays.asList(
+        "Add processes",
+        "Delete process",
+        "Back");
+
+    public static List<String> controlMethodOut = Arrays.asList(
+        "Add Output",
+        "Back");
+    // choiseOption
+    public static List<String> inOptions = List.of(
+        "Objects",
+        "Time",
+        "Processes",
+        "Output",
+        "Back");
+
+    // InptManager
+    public static List<String> managerInOption = Arrays.asList(
+        "Start Simulation",
+        "Add Objects and other For Simulation",
+        "End");
+
+  }
+
+  public static class ObjForInput {
+    // input
+    public static List<Supplier<SimulationProcess>> factorProc = List.of(
+        AccelerationProcessor::new,
+        VelocityProcessor::new,
+        MoveProcessor::new);
+
+    // control
+
+  }
 
   public static class BoundariesSpace {
     public static final BigDecimal upperCosm = new BigDecimal("1E27");
@@ -97,6 +204,15 @@ public class Constants {
      * new InputFromBDObj()
      * );
      */
+
+    public static List<InputTime> inputTime = List.of(
+        new InputDefoultTime(),
+        new InputFromRandomTime(),
+        new InputFromTimeTerm());
+
+    public static List<InputMethodOutput> inputMethodOut = List.of(
+        new InputFromTermMethodOutput());
+
   }
 
   public static class ControlsList {

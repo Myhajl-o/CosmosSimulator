@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.cosmos.simulation.io.MenuTerm;
 import com.cosmos.simulation.io.input.InputTime;
 import com.cosmos.simulation.model.Time;
+import com.cosmos.simulation.physics.Constants;
 import com.cosmos.simulation.validation.ValidationCheck;
 
 public class InputFromTimeTerm implements InputTime {
@@ -33,11 +34,9 @@ public class InputFromTimeTerm implements InputTime {
 
   @Override
   public Time inputTime(MenuTerm term) {
-    List<String> msg = List.of(
-        "Enter Step Count: ",
-        "Enter Time Step: ");
+
     List<String> param = new ArrayList<>();
-    for (String prompt : msg) {
+    for (String prompt : Constants.Massanges.inTime) {
       term.showMsg(prompt);
       param.add(term.getInput());
     }

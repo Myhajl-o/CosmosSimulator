@@ -1,3 +1,5 @@
+com/cosmos/simulation/io/input/time/InputFromRandomTime.class
+com/cosmos/simulation/io/input/time/InputDefoultTime.class
 com/cosmos/simulation/io/input/model/VecTemp.class
 com/cosmos/simulation/model/ObjectCosmos.class
 com/cosmos/simulation/math/Vector3.class

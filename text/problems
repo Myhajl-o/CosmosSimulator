@@ -1,3 +1,4 @@
 
-Треба зробити ControlTime ControlProcess ControlMethOutput
-Доробити ChoiseOptionManager InputManager
+ControlObjects проблеми
+
+InputFromDefaultObject вилитає нахуй програма.

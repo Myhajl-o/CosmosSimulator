@@ -5,6 +5,7 @@ import com.cosmos.simulation.io.input.InputObject;
 import com.cosmos.simulation.io.input.model.Temp;
 import com.cosmos.simulation.io.input.model.VecTemp;
 import com.cosmos.simulation.model.ObjectCosmos;
+import com.cosmos.simulation.physics.Constants;
 import com.cosmos.simulation.physics.Constants.BoundariesSpace;
 import com.cosmos.simulation.validation.IdentifyObj;
 import com.cosmos.simulation.validation.ValidationCheck;
@@ -12,7 +13,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-/** Creates objects from the midpoints of the selected type's parameter bounds. */
+/**
+ * Creates objects from the midpoints of the selected type's parameter bounds.
+ */
 public class InputFromDefaultObj implements InputObject {
   private static final BigDecimal INDENT_STEP = new BigDecimal("100000000");
 
@@ -28,14 +31,16 @@ public class InputFromDefaultObj implements InputObject {
     this.menu = Objects.requireNonNull(menu);
   }
 
-  /** Increases the coordinate offset only after successful validation and identification. */
+  /**
+   * Increases the coordinate offset only after successful validation and
+   * identification.
+   */
   @Override
   public ObjectCosmos inputObj() {
     if (menu == null) {
       menu = new MenuTerm();
     }
-    menu.showMsg("Select an object type:\n");
-    int choice = menu.choiseOption(List.of("Planet", "Star", "Black hole"));
+    int choice = menu.choiseOption(Constants.Massanges.defObj);
     BigDecimal mass;
     BigDecimal radius;
     switch (choice) {

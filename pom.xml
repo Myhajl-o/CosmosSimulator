@@ -28,7 +28,7 @@
           <version>3.6.4</version>
           <configuration>
           <mainClass>com.cosmos.simulation.Main</mainClass>
-          <classpathScope>main</classpathScope>
+          <classpathScope>runtime</classpathScope>
         </configuration>
       </plugin>
     </plugins>
