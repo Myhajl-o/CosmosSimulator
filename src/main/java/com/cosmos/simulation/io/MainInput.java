@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface MainInput {
 
-  List<String> input(List<String> msg) throws IOException;
+  List<String> input() throws IOException;
 }

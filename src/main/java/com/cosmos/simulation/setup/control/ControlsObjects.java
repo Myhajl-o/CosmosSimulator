@@ -24,7 +24,7 @@ public class ControlsObjects implements Controls<CosmosWorld> {
         case 0:
           term.clear();
           i = term.choiseOption(Constants.Massanges.controlCreateObj);
-          ObjectCosmos obj = Constants.AllListsInput.inputObject.get(i).inputObj();
+          ObjectCosmos obj = Constants.AllListsInput.inputObject.get(i).inputObj(term);
           cosmWorld.addObj(obj);
           break;
         /*

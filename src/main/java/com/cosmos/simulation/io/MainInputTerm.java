@@ -7,7 +7,13 @@ import java.util.ArrayList;
 
 public class MainInputTerm implements MainInput {
 
-  public List<String> input(List<String> msg)
+  private List<String> msg;
+
+  public MainInputTerm(List<String> msg) {
+    this.msg = msg;
+  }
+
+  public List<String> input()
       throws IOException {
     List<String> param = new ArrayList<String>();
     Scanner scanf = new Scanner(System.in);

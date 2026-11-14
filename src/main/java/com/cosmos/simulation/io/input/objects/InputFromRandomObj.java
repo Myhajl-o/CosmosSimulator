@@ -1,6 +1,7 @@
 package com.cosmos.simulation.io.input.objects;
 
 import com.cosmos.simulation.io.input.InputObject;
+import com.cosmos.simulation.io.MenuTerm;
 import com.cosmos.simulation.io.input.model.Temp;
 import com.cosmos.simulation.io.input.model.VecTemp;
 import com.cosmos.simulation.model.ObjectCosmos;
@@ -26,7 +27,7 @@ public class InputFromRandomObj implements InputObject {
 
   /** Returns the identified object, or null when the generated parameters are rejected. */
   @Override
-  public ObjectCosmos inputObj() {
+  public ObjectCosmos inputObj(MenuTerm term) {
     BigDecimal minMass = BoundariesSpace.lowerMassPlanet
         .min(BoundariesSpace.lowerMassStar).min(BoundariesSpace.lowerMassBlackHole);
     BigDecimal maxMass = BoundariesSpace.upperMassPlanet

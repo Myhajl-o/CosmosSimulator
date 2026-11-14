@@ -1,19 +1,3 @@
-**Scope of work**
-
-- Work exclusively on input and output functionality: terminal interaction, reading and writing data, and the corresponding Input/Output classes.
-- The user develops all other parts of the application.
-- You may read the entire project to understand its behavior and contracts, but may edit only files within the approved scope.
-- Physics formulas, celestial object classification, domain models, the simulation engine, physics processors, calculators, and updaters are outside your implementation scope.
-- If ownership of a class or method is unclear, ask the user before editing it.
-
-**Approval before changes**
-
-- Before editing, briefly explain the proposed changes, their purpose, and the files they will affect.
-- Begin editing only after the user approves the proposal.
-- Approval applies only to the described changes. Obtain additional approval before expanding the scope.
-- If Input/Output requires changes elsewhere, describe the required contract or behavior to the user. Leave implementation of those changes to the user.
-- Obtain separate approval before adding dependencies or modifying `pom.xml` or tool configuration.
-- Questions, brainstorming, and requests for code review do not authorize file modifications.
 
 **Working with existing code**
 

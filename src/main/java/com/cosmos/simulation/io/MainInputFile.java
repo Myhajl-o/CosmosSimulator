@@ -12,11 +12,11 @@ public class MainInputFile implements MainInput {
 
   private String path;
 
-  public void setPath(String path) {
+  public MainInputFile(String path) {
     this.path = path;
   }
 
-  public List<String> input(List<String> msg)
+  public List<String> input()
       throws IOException {
     if (path == null) {
       throw new IOException("Not found file to path");
@@ -31,13 +31,15 @@ public class MainInputFile implements MainInput {
         throw new IOException("Expected a line, but reached end of file");
       }
 
-      try (Scanner scanner = new Scanner(line)) {
-        scanner.useDelimiter(";");
+      do {
+        try (Scanner scanner = new Scanner(line)) {
+          scanner.useDelimiter(";");
 
-        while (scanner.hasNext()) {
-          param.add(scanner.next());
+          while (scanner.hasNext()) {
+            param.add(scanner.next());
+          }
         }
-      }
+      } while ((line = reader.readLine()) != null);
     }
     return param;
   }

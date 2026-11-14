@@ -11,7 +11,6 @@ import com.cosmos.simulation.validation.IdentifyObj;
 import com.cosmos.simulation.validation.ValidationCheck;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Creates objects from the midpoints of the selected type's parameter bounds.
@@ -19,28 +18,11 @@ import java.util.Objects;
 public class InputFromDefaultObj implements InputObject {
   private static final BigDecimal INDENT_STEP = new BigDecimal("100000000");
 
-  private MenuTerm menu;
   private BigDecimal indent = BigDecimal.ZERO;
 
-  /** Opens the terminal lazily when input is first requested. */
-  public InputFromDefaultObj() {
-  }
-
-  /** Reuses the application's terminal menu. */
-  public InputFromDefaultObj(MenuTerm menu) {
-    this.menu = Objects.requireNonNull(menu);
-  }
-
-  /**
-   * Increases the coordinate offset only after successful validation and
-   * identification.
-   */
-  @Override
-  public ObjectCosmos inputObj() {
-    if (menu == null) {
-      menu = new MenuTerm();
-    }
-    int choice = menu.choiseOption(Constants.Massanges.defObj);
+  public ObjectCosmos inputObj(MenuTerm term) {
+    term.clear();
+    int choice = term.choiseOption(Constants.Massanges.defObj);
     BigDecimal mass;
     BigDecimal radius;
     switch (choice) {
